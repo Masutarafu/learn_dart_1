@@ -1,8 +1,6 @@
 import 'dart:io';
 
 void main() {
-  // const must be known at compile time.
-  // We know PI, so it's a const.
   const double pi = 3.14159265359;
 
   stdout.write('Enter the radius: ');
@@ -13,8 +11,6 @@ void main() {
     return;
   }
 
-  // final is used because we don't know the radius until the user types it.
-  // It is immutable once set, but it is a RUNTIME constant.
   final double radius = double.parse(input);
 
   final double area = pi * (radius * radius);
