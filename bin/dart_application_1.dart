@@ -50,6 +50,7 @@ import 'dart:io';
 // }
 
 // Day 3: Exercise on Null Safety and Records
+// Exercise 1
 // The Task: Weather Station Simulation
 // The Function: Create a function called getWeather that takes a String cityName.
 // The Return Type: It must return a Record containing a String? (the condition, like "Sunny") and a double? (the temperature).
@@ -65,23 +66,75 @@ import 'dart:io';
 // If the condition is null, print "Condition: Unknown".
 // If the temperature is null, print "Temperature: 0.0" (using the ?? operator).
 
+// void main() {
+//   stdout.write('What city are you presently? ');
+
+//   String? userInput = stdin.readLineSync();
+
+//   final weatherCheck = getWeather(userInput ?? 'Condition: Unknown');
+//   print(
+//     '${weatherCheck.$1 ?? "Condition Unknown"}, ${weatherCheck.$2 ?? "Temperature: 0.0"}',
+//   );
+// }
+
+// (String?, double?) getWeather(String cityName) {
+//   if (cityName == 'London') {
+//     return ('Rainy', 15.0);
+//   } else if (cityName == 'Dubai') {
+//     return ('Sunny', 42.0);
+//   } else {
+//     return (null, null);
+//   }
+// }
+
+// Day 4: Exercise 2
+// The Task: The "Digital Vault"
+// Imagine you are writing the logic for a secure vault. To get in, a user needs a username and a pin.
+
+// 1. The Function: openVault
+// Create a function called openVault that takes two parameters: String username and int pin.
+
+// The Return Type: It must return a Record containing:
+// A String? (The secret message inside the vault).
+// A String? (An error message if the login fails).
+
+// The Logic:
+// If the username is "admin" and the pin is 9999, return ('The gold is under the floorboards', null).
+// If the username is "admin" but the pin is wrong, return (null, 'INCORRECT PIN').
+// If the username is anything else, return (null, 'USER NOT RECOGNIZED').
+
+// 2. The Implementation: main()
+// Ask the user for their name and then for their PIN. (Note: stdin.readLineSync() returns a String?.
+//You’ll need to convert the PIN to an int using int.tryParse()).
+
+// The Challenge: Call openVault.
+
+// The Safety Check:
+// Use Pattern Destructuring to get the values (e.g., final (secret, error) = ...).
+// Print the secret message. If it’s null, print "Access Denied".
+// Print the error message. If it’s null, print "System healthy".
+
 void main() {
-  stdout.write('What city are you presently? ');
+  stdout.write('Please input username? ');
+  String nameput = stdin.readLineSync() ?? '';
 
-  String? userInput = stdin.readLineSync();
+  stdout.write('Please input four-digit pin? ');
+  String pinput = stdin.readLineSync() ?? '';
 
-  final weatherCheck = getWeather(userInput ?? 'Condition: Unknown');
-  print(
-    '${weatherCheck.$1 ?? "Condition Unknown"}, ${weatherCheck.$2 ?? "Temperature: 0.0"}',
-  );
+  int pincheck = int.tryParse(pinput) ?? 0;
+
+  final (secret, error) = openVault(nameput, pincheck);
+
+  print(secret ?? 'Access Denied');
+  print(error ?? 'System healthy');
 }
 
-(String?, double?) getWeather(String cityName) {
-  if (cityName == 'London') {
-    return ('Rainy', 15.0);
-  } else if (cityName == 'Dubai') {
-    return ('Sunny', 42.0);
+(String?, String?) openVault(String username, int pin) {
+  if (username == "admin" && pin == 9999) {
+    return ('The gold is under the floorboards', null);
+  } else if (username == "admin" && pin != 9999) {
+    return (null, 'INCORRECT PIN');
   } else {
-    return (null, null);
+    return (null, 'USER NOT RECOGNIZED');
   }
 }
