@@ -88,6 +88,7 @@ import 'dart:io';
 // }
 
 // Day 4: Exercise 2
+// Done
 // The Task: The "Digital Vault"
 // Imagine you are writing the logic for a secure vault. To get in, a user needs a username and a pin.
 
