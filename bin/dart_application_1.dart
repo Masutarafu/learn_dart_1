@@ -156,4 +156,11 @@ void main() {
   // This returns NULL. This is where your Day 2 skills come in.
   String? unknown = phonebook['Charlie'];
   print(unknown ?? 'Number not found');
+
+  // FOR-IN LOOP FOR-IN LOOP FOR-IN LOOP
+  List<String> colors = ['Red', 'Green', 'Blue'];
+
+  for (String color in colors) {
+    print('The color is $color');
+  }
 }
