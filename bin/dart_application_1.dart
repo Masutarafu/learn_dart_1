@@ -115,27 +115,45 @@ import 'dart:io';
 // Print the secret message. If it’s null, print "Access Denied".
 // Print the error message. If it’s null, print "System healthy".
 
+// void main() {
+//   stdout.write('Please input username? ');
+//   String nameput = stdin.readLineSync() ?? '';
+
+//   stdout.write('Please input four-digit pin? ');
+//   String pinput = stdin.readLineSync() ?? '';
+
+//   int pincheck = int.tryParse(pinput) ?? 0;
+
+//   final (secret, error) = openVault(nameput, pincheck);
+
+//   print(secret ?? 'Access Denied');
+//   print(error ?? 'System healthy');
+// }
+
+// (String?, String?) openVault(String username, int pin) {
+//   if (username == "admin" && pin == 9999) {
+//     return ('The gold is under the floorboards', null);
+//   } else if (username == "admin" && pin != 9999) {
+//     return (null, 'INCORRECT PIN');
+//   } else {
+//     return (null, 'USER NOT RECOGNIZED');
+//   }
+// }
+
+// Day 5: Collections (Lists, Sets & Maps)
+
+// Examples
+
+// MAP MAP MAP
+// MAP MAP MAP
 void main() {
-  stdout.write('Please input username? ');
-  String nameput = stdin.readLineSync() ?? '';
+  Map<String, String> phonebook = {'Alice': '555-1234', 'Bob': '555-5678'};
 
-  stdout.write('Please input four-digit pin? ');
-  String pinput = stdin.readLineSync() ?? '';
+  // Accessing a key that exists:
+  print(phonebook['Alice']); // Output: 555-1234
 
-  int pincheck = int.tryParse(pinput) ?? 0;
-
-  final (secret, error) = openVault(nameput, pincheck);
-
-  print(secret ?? 'Access Denied');
-  print(error ?? 'System healthy');
-}
-
-(String?, String?) openVault(String username, int pin) {
-  if (username == "admin" && pin == 9999) {
-    return ('The gold is under the floorboards', null);
-  } else if (username == "admin" && pin != 9999) {
-    return (null, 'INCORRECT PIN');
-  } else {
-    return (null, 'USER NOT RECOGNIZED');
-  }
+  // Accessing a key that DOES NOT exist:
+  // This returns NULL. This is where your Day 2 skills come in.
+  String? unknown = phonebook['Charlie'];
+  print(unknown ?? 'Number not found');
 }
