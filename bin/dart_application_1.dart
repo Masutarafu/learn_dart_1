@@ -89,7 +89,6 @@ import 'dart:io';
 // }
 
 // Day 4: Exercise 2
-// Done
 // The Task: The "Digital Vault"
 // Imagine you are writing the logic for a secure vault. To get in, a user needs a username and a pin.
 
@@ -184,19 +183,55 @@ import 'dart:io';
 //   print(unknown ?? 'Number not found');
 // }
 
-void main() {
-  // FOR-IN LOOP(LIST) FOR-IN LOOP(LIST) FOR-IN LOOP(LIST)
-  List<String> colors = ['Red', 'Green', 'Blue'];
+// void main() {
+//   // FOR-IN LOOP(LIST) FOR-IN LOOP(LIST) FOR-IN LOOP(LIST)
+//   List<String> colors = ['Red', 'Green', 'Blue'];
 
-  for (String color in colors) {
-    print('The color is $color');
+//   for (String color in colors) {
+//     print('The color is $color');
+//   }
+
+//   print('---');
+
+//   List<String> newColors = ['Cyan', 'Magenta', ...colors, 'Yellow', 'Black'];
+
+//   for (String color in newColors) {
+//     print('The color is $color');
+//   }
+// }
+
+void main() {
+  // SET SET SET
+  // Example
+  Set<String> uniqueNames = {'Alice', 'Bob', 'Charlie'};
+
+  uniqueNames.add('Alice'); // Duplicate, won't be added
+  uniqueNames.add('David'); // New name, will be added
+
+  for (String name in uniqueNames) {
+    print('Name: $name');
   }
 
-  print('---');
+  var setA = {1, 2, 3, 4};
+  var setB = {3, 4, 5, 6};
 
-  List<String> newColors = ['Cyan', 'Magenta', ...colors, 'Yellow', 'Black'];
+  // Union: Combine both (removes duplicates)
+  print(setA.union(setB)); // {1, 2, 3, 4, 5, 6}
 
-  for (String color in newColors) {
-    print('The color is $color');
+  // Intersection: Only items in BOTH sets
+  print(setA.intersection(setB)); // {3, 4}
+
+  // Difference: Items in setA that are NOT in setB
+  print(setA.difference(setB)); // {1, 2}
+
+  var programmingLanguages = <String>{'Dart', 'Python'};
+
+  programmingLanguages.add('Java');
+  programmingLanguages.addAll(['C#', 'Dart']); // 'Dart' won't be added again
+
+  programmingLanguages.remove('Python');
+
+  if (programmingLanguages.contains('Dart')) {
+    print('Dart is in the set!');
   }
 }
