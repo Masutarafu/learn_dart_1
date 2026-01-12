@@ -1,3 +1,4 @@
+import 'dart:html_common';
 import 'dart:io';
 
 // Day 1: The type system & Immutability
@@ -146,21 +147,39 @@ import 'dart:io';
 
 // MAP MAP MAP
 // MAP MAP MAP
+// void main() {
+//   Map<String, String> phonebook = {'Alice': '555-1234', 'Bob': '555-5678'};
+
+//   // Accessing a key that exists:
+//   print(phonebook['Alice']); // Output: 555-1234
+
+//   // Accessing a key that DOES NOT exist:
+//   // This returns NULL. This is where your Day 2 skills come in.
+//   String? unknown = phonebook['Charlie'];
+//   print(unknown ?? 'Number not found');
+
+//   // FOR-IN LOOP FOR-IN LOOP FOR-IN LOOP
+//   List<String> colors = ['Red', 'Green', 'Blue'];
+
+//   for (String color in colors) {
+//     print('The color is $color');
+//   }
+// }
+
+// Day 6: Understanding Collections (Lists, Sets & Maps)
 void main() {
+  // MAP MAP MAP
+  // MAP MAP MAP
+  Map<String, int> inventory = {'Apples': 176, 'Oranges': 214, 'Bananas': 10};
+
   Map<String, String> phonebook = {'Alice': '555-1234', 'Bob': '555-5678'};
 
   // Accessing a key that exists:
   print(phonebook['Alice']); // Output: 555-1234
+  print(inventory['Banana']);
 
   // Accessing a key that DOES NOT exist:
   // This returns NULL. This is where your Day 2 skills come in.
   String? unknown = phonebook['Charlie'];
   print(unknown ?? 'Number not found');
-
-  // FOR-IN LOOP FOR-IN LOOP FOR-IN LOOP
-  List<String> colors = ['Red', 'Green', 'Blue'];
-
-  for (String color in colors) {
-    print('The color is $color');
-  }
 }
