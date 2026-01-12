@@ -167,19 +167,36 @@ import 'dart:io';
 // }
 
 // Day 6: Understanding Collections (Lists, Sets & Maps)
+// void main() {
+//   // MAP MAP MAP
+//   // MAP MAP MAP
+//   Map<String, int> inventory = {'Apples': 176, 'Oranges': 214, 'Bananas': 10};
+
+//   Map<String, String> phonebook = {'Alice': '555-1234', 'Bob': '555-5678'};
+
+//   // Accessing a key that exists:
+//   print(phonebook['Alice']); // Output: 555-1234
+//   print(inventory['Banana']);
+
+//   // Accessing a key that DOES NOT exist:
+//   // This returns NULL. This is where your Day 2 skills come in.
+//   String? unknown = phonebook['Charlie'];
+//   print(unknown ?? 'Number not found');
+// }
+
 void main() {
-  // MAP MAP MAP
-  // MAP MAP MAP
-  Map<String, int> inventory = {'Apples': 176, 'Oranges': 214, 'Bananas': 10};
+  // FOR-IN LOOP(LIST) FOR-IN LOOP(LIST) FOR-IN LOOP(LIST)
+  List<String> colors = ['Red', 'Green', 'Blue'];
 
-  Map<String, String> phonebook = {'Alice': '555-1234', 'Bob': '555-5678'};
+  for (String color in colors) {
+    print('The color is $color');
+  }
 
-  // Accessing a key that exists:
-  print(phonebook['Alice']); // Output: 555-1234
-  print(inventory['Banana']);
+  print('---');
 
-  // Accessing a key that DOES NOT exist:
-  // This returns NULL. This is where your Day 2 skills come in.
-  String? unknown = phonebook['Charlie'];
-  print(unknown ?? 'Number not found');
+  List<String> newColors = ['Cyan', 'Magenta', ...colors, 'Yellow', 'Black'];
+
+  for (String color in newColors) {
+    print('The color is $color');
+  }
 }
