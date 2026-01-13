@@ -274,6 +274,7 @@ void main() {
   }
 
   print(finalGuestList);
+  print('The total number of guests is: ${finalGuestList.length}');
 
   Set<String> vipGuests = {'Alice', 'David', 'Andrew'};
 
