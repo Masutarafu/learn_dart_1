@@ -200,38 +200,86 @@ import 'dart:io';
 //   }
 // }
 
+// void main() {
+//   // SET SET SET
+//   // Example
+//   Set<String> uniqueNames = {'Alice', 'Bob', 'Charlie'};
+
+//   uniqueNames.add('Alice'); // Duplicate, won't be added
+//   uniqueNames.add('David'); // New name, will be added
+
+//   for (String name in uniqueNames) {
+//     print('Name: $name');
+//   }
+
+//   var setA = {1, 2, 3, 4};
+//   var setB = {3, 4, 5, 6};
+
+//   // Union: Combine both (removes duplicates)
+//   print(setA.union(setB)); // {1, 2, 3, 4, 5, 6}
+
+//   // Intersection: Only items in BOTH sets
+//   print(setA.intersection(setB)); // {3, 4}
+
+//   // Difference: Items in setA that are NOT in setB
+//   print(setA.difference(setB)); // {1, 2}
+
+//   var programmingLanguages = <String>{'Dart', 'Python'};
+
+//   programmingLanguages.add('Java');
+//   programmingLanguages.addAll(['C#', 'Dart']); // 'Dart' won't be added again
+
+//   programmingLanguages.remove('Python');
+
+//   if (programmingLanguages.contains('Dart')) {
+//     print('Dart is in the set!');
+//   }
+// }
+
+// Day 7: Exercises
+// Exercise 3
+// A quick exercise on Sets
+// The Task: The "Guest List" Manager
+// Create a Dart program that simulates a guest list for a party. Follow these steps:
+// Create a List called rawGuestList containing these names (copy-paste them):
+//['Alice', 'Bob', 'Charlie', 'Alice', 'David', 'Bob', 'Eve'].
+// Create a Set called finalGuestList and initialize it using the values from rawGuestList (this should
+//automatically remove the duplicates).
+// Add a new guest named "Frank" to the finalGuestList.
+// Remove "Charlie" from the list (he can't make it).
+// Check if "Alice" is on the list and print a message like: "Alice is invited: true".
+// Print the final count of guests using the .length property.
+// Print the entire finalGuestList.
+// Bonus Challenge: Create a second Set called vipGuests with the names ['Alice', 'David']. Use a Set
+//method to find out which guests in your finalGuestList are also on the vipGuests list.
+
 void main() {
-  // SET SET SET
-  // Example
-  Set<String> uniqueNames = {'Alice', 'Bob', 'Charlie'};
+  List<String> rawGuestList = [
+    'Alice',
+    'Bob',
+    'Charlie',
+    'Alice',
+    'David',
+    'Bob',
+    'Eve',
+  ];
 
-  uniqueNames.add('Alice'); // Duplicate, won't be added
-  uniqueNames.add('David'); // New name, will be added
+  Set<String> finalGuestList = {...rawGuestList};
 
-  for (String name in uniqueNames) {
-    print('Name: $name');
+  finalGuestList.add('Frank');
+  finalGuestList.remove('Charlie');
+
+  if (finalGuestList.contains('Alice')) {
+    print('Alice is invited: true');
   }
 
-  var setA = {1, 2, 3, 4};
-  var setB = {3, 4, 5, 6};
+  print(finalGuestList);
 
-  // Union: Combine both (removes duplicates)
-  print(setA.union(setB)); // {1, 2, 3, 4, 5, 6}
+  Set<String> vipGuests = {'Alice', 'David', 'Andrew'};
 
-  // Intersection: Only items in BOTH sets
-  print(setA.intersection(setB)); // {3, 4}
-
-  // Difference: Items in setA that are NOT in setB
-  print(setA.difference(setB)); // {1, 2}
-
-  var programmingLanguages = <String>{'Dart', 'Python'};
-
-  programmingLanguages.add('Java');
-  programmingLanguages.addAll(['C#', 'Dart']); // 'Dart' won't be added again
-
-  programmingLanguages.remove('Python');
-
-  if (programmingLanguages.contains('Dart')) {
-    print('Dart is in the set!');
-  }
+  print(vipGuests.intersection(finalGuestList));
 }
+
+// Day 6 continued: Exercise on Collections so far(Maps, Lists, spread operator)
+// Exercise 3
+// The Task:
