@@ -314,4 +314,28 @@ import 'dart:io';
 
 // The Summary: At the very end, print: "Total unique, legal books: [Count]"
 
-void main() {}
+void main() {
+  Map<String, String> catalog = {'1984': 'Dystopian', 'The Hobbit': 'Fantasy'};
+
+  List<String> shipmentA = ['1984', 'The Great Gatsby', 'Brave New World'];
+  List<String> shipmentB = ['The Hobbit', 'Brave New World', 'The Shining'];
+
+  // The contents of this Set are banned and must never enter the inventory
+  Set<String> blackList = {'The Shining', "Fifty Shades of Grey"};
+
+  // Merging and deduplication
+  Set<String> mergedList = {...shipmentA, ...shipmentB};
+
+  // Cleaning the list(Taking out the contents of the blackList that exist in the mergedList)
+  var cleanList = mergedList.difference(blackList);
+
+  // Formatting the final report
+  List<String> finalReport = [];
+  for (var title in cleanList) {
+    String genre = catalog[title] ?? 'Unclassified';
+    finalReport.add('Title: $title | Genre: $genre');
+  }
+
+  finalReport.forEach(print);
+  print('Total unique, legal books: ${cleanList.length}');
+}
