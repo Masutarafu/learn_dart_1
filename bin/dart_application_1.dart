@@ -1,5 +1,5 @@
-import 'dart:html_common';
-import 'dart:io';
+// import 'dart:html_common';
+// import 'dart:io';
 
 // Day 1: The type system & Immutability
 // void main() {
@@ -314,28 +314,77 @@ import 'dart:io';
 
 // The Summary: At the very end, print: "Total unique, legal books: [Count]"
 
+// void main() {
+//   Map<String, String> catalog = {'1984': 'Dystopian', 'The Hobbit': 'Fantasy'};
+
+//   List<String> shipmentA = ['1984', 'The Great Gatsby', 'Brave New World'];
+//   List<String> shipmentB = ['The Hobbit', 'Brave New World', 'The Shining'];
+
+//   // The contents of this Set are banned and must never enter the inventory
+//   Set<String> blackList = {'The Shining', "Fifty Shades of Grey"};
+
+//   // Merging and deduplication
+//   Set<String> mergedList = {...shipmentA, ...shipmentB};
+
+//   // Cleaning the list(Taking out the contents of the blackList that exist in the mergedList)
+//   var cleanList = mergedList.difference(blackList);
+
+//   // Formatting the final report
+//   List<String> finalReport = [];
+//   for (var title in cleanList) {
+//     String genre = catalog[title] ?? 'Unclassified';
+//     finalReport.add('Title: $title | Genre: $genre');
+//   }
+
+//   finalReport.forEach(print);
+//   print('Total unique, legal books: ${cleanList.length}');
+// }
+
+// Exercise 5
+// The "Final Boss" Challenge: The Classroom System
+// This task requires you to use everything we've discussed: Inputs, Null-safety, Lists, Sets,
+//and Maps.
+
+// The Scenario:
+// You are building a system for a teacher who has a messy list of student IDs from an
+//attendance sheet. Some IDs are duplicated because students signed in twice.
+
+// The Raw Data: Start with this list: List<int> attendanceIds = [101, 102, 101, 103, 102, 104];
+
+// The Clean Up: Convert attendanceIds into a Set called uniqueIds to remove the duplicates.
+
+// The Registry (The Map): Create a Map<int, String> studentRegistry that maps IDs to Names:
+
+// 101: "Alice"
+
+// 102: "Bob"
+
+// 103: "Charlie"
+
+// (Note: ID 104 is NOT in the registry!)
+
+// The Logic (The Loop): Convert your uniqueIds back into a List and loop through it.
+//For each ID:
+
+// Look up the name in the studentRegistry.
+
+// If the name exists, print: "ID [ID] belongs to [Name]".
+
+// If the ID is not in the registry (like 104), use the ?? operator
+//to print: "ID [ID] belongs to Unknown Student".
+
+// Day 9: Higher-Order Methods(.where, .map)
+// .where
 void main() {
-  Map<String, String> catalog = {'1984': 'Dystopian', 'The Hobbit': 'Fantasy'};
+  var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  var evens = numbers.where((n) => n.isEven).toList();
 
-  List<String> shipmentA = ['1984', 'The Great Gatsby', 'Brave New World'];
-  List<String> shipmentB = ['The Hobbit', 'Brave New World', 'The Shining'];
+  print(evens);
 
-  // The contents of this Set are banned and must never enter the inventory
-  Set<String> blackList = {'The Shining', "Fifty Shades of Grey"};
+  // .map
+  var names = ['david', 'bash', 'dare', 'yemi', 'kunle', 'farook', 'sam'];
+  // var shouting = names.map((name) => name.toUpperCase());
+  var shouting = names.map((name) => name.toUpperCase()).toList();
 
-  // Merging and deduplication
-  Set<String> mergedList = {...shipmentA, ...shipmentB};
-
-  // Cleaning the list(Taking out the contents of the blackList that exist in the mergedList)
-  var cleanList = mergedList.difference(blackList);
-
-  // Formatting the final report
-  List<String> finalReport = [];
-  for (var title in cleanList) {
-    String genre = catalog[title] ?? 'Unclassified';
-    finalReport.add('Title: $title | Genre: $genre');
-  }
-
-  finalReport.forEach(print);
-  print('Total unique, legal books: ${cleanList.length}');
+  print(shouting);
 }
