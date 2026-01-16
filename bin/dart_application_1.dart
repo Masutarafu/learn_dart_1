@@ -375,16 +375,56 @@
 
 // Day 9: Higher-Order Methods(.where, .map)
 // .where
+// void main() {
+//   var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+//   var evens = numbers.where((n) => n.isEven).toList();
+
+//   print(evens);
+
+//   // .map
+//   var names = ['david', 'bash', 'dare', 'yemi', 'kunle', 'farook', 'sam'];
+//   // var shouting = names.map((name) => name.toUpperCase());
+//   var shouting = names.map((name) => name.toUpperCase()).toList();
+
+//   print(shouting);
+// }
+
+// Quick Exercise on the Higher-Order Methods
+// Exercise 6
+// The Task: The "Grade Processor"
+// You have a list of student records (Records). You need to find the top students and format
+//their names.
+
+// The Data: A list of records: final students = [(name: 'Alice', score: 92),
+//(name: 'Bob', score: 45), (name: 'Charlie', score: 88), (name: 'Dan', score: 59)];
+
+// The Filter: Use .where() to find only students with a score greater than or equal to 60.
+
+// The Transformation: Use .map() on those filtered students to return a list of Strings that
+//look like: "PASSED: [Name]".
+
+// The Logic: Use .any() to check if anyone failed (score < 60) and print "Safety warning: Some
+//students failed." if true.
+
+// Final Step: Print your list of "PASSED" strings.
+
 void main() {
-  var numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-  var evens = numbers.where((n) => n.isEven).toList();
+  final students = [
+    (name: 'Alice', score: 92),
+    (name: 'Bob', score: 45),
+    (name: 'Charlie', score: 88),
+    (name: 'Dan', score: 59),
+  ];
 
-  print(evens);
+  final passed =
+      students
+          .where((s) => s.score >= 60)
+          .map((s) => "PASSED: ${s.name}")
+          .toList();
 
-  // .map
-  var names = ['david', 'bash', 'dare', 'yemi', 'kunle', 'farook', 'sam'];
-  // var shouting = names.map((name) => name.toUpperCase());
-  var shouting = names.map((name) => name.toUpperCase()).toList();
+  students.any((s) => s.score < 60)
+      ? print("Safety warning: Some students failed.")
+      : null;
 
-  print(shouting);
+  print(passed);
 }
