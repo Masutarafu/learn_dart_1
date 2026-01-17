@@ -435,16 +435,29 @@
 // Asynchrony (Futures, async, & await)
 
 // This function simulates a network request that takes 2 seconds
-Future<String> fetchCoffee() {
-  return Future.delayed(Duration(seconds: 3), () => 'Cappuccino');
-}
+// Future<String> fetchCoffee() {
+//   return Future.delayed(Duration(seconds: 3), () => 'Cappuccino');
+// }
 
-void main() async {
-  print('Step 1: Order coffee.');
+// void main() async {
+//   print('Step 1: Order coffee.');
 
-  // We await the result. The main function pauses here,
-  // but the 'system' stays alive.
-  String coffee = await fetchCoffee();
+//   // We await the result. The main function pauses here,
+//   // but the 'system' stays alive.
+//   String coffee = await fetchCoffee();
 
-  print('Step 2: Drink $coffee.'); // This only runs after 2 seconds.
+//   print('Step 2: Drink $coffee.'); // This only runs after 2 seconds.
+// }
+
+// Error handling with try catch
+Future<void> downloadProfile() async {
+  try {
+    print('Connecting to server...');
+    var data = await apiRequest(); // Imagine this fails
+    print('Profile: $data');
+  } catch (e) {
+    print('Error: Could not download profile. (Reason: $e)');
+  } finally {
+    print('Operation attempt finished.');
+  }
 }
