@@ -389,6 +389,7 @@
 //   print(shouting);
 // }
 
+// Day 10: Understanding Higher-Order functions better
 // Quick Exercise on the Higher-Order Methods
 // Exercise 6
 // The Task: The "Grade Processor"
@@ -408,23 +409,42 @@
 
 // Final Step: Print your list of "PASSED" strings.
 
-void main() {
-  final students = [
-    (name: 'Alice', score: 92),
-    (name: 'Bob', score: 45),
-    (name: 'Charlie', score: 88),
-    (name: 'Dan', score: 59),
-  ];
+// void main() {
+//   final students = [
+//     (name: 'Alice', score: 92),
+//     (name: 'Bob', score: 45),
+//     (name: 'Charlie', score: 88),
+//     (name: 'Dan', score: 59),
+//   ];
 
-  final passed =
-      students
-          .where((s) => s.score >= 60)
-          .map((s) => "PASSED: ${s.name}")
-          .toList();
+//   final passed =
+//       students
+//           .where((s) => s.score >= 60)
+//           .map((s) => "PASSED: ${s.name}")
+//           .toList();
 
-  students.any((s) => s.score < 60)
-      ? print("Safety warning: Some students failed.")
-      : null;
+//   students.any((s) => s.score < 60)
+//       ? print("Safety warning: Some students failed.")
+//       : null;
 
-  print(passed);
+//   print(passed);
+// }
+
+// Day 11: Asynchrony in Dart
+// Asynchrony (Futures, async, & await)
+// Asynchrony (Futures, async, & await)
+
+// This function simulates a network request that takes 2 seconds
+Future<String> fetchCoffee() {
+  return Future.delayed(Duration(seconds: 3), () => 'Cappuccino');
+}
+
+void main() async {
+  print('Step 1: Order coffee.');
+
+  // We await the result. The main function pauses here,
+  // but the 'system' stays alive.
+  String coffee = await fetchCoffee();
+
+  print('Step 2: Drink $coffee.'); // This only runs after 2 seconds.
 }
