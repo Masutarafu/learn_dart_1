@@ -450,14 +450,38 @@
 // }
 
 // Error handling with try catch
-Future<void> downloadProfile() async {
-  try {
-    print('Connecting to server...');
-    var data = await apiRequest(); // Imagine this fails
-    print('Profile: $data');
-  } catch (e) {
-    print('Error: Could not download profile. (Reason: $e)');
-  } finally {
-    print('Operation attempt finished.');
-  }
-}
+// Future<void> downloadProfile() async {
+//   try {
+//     print('Connecting to server...');
+//     var data = await apiRequest(); // Imagine this fails
+//     print('Profile: $data');
+//   } catch (e) {
+//     print('Error: Could not download profile. (Reason: $e)');
+//   } finally {
+//     print('Operation attempt finished.');
+//   }
+// }
+
+// Day 12: Exercises on Asynchrony and Error Handling
+// Exercises on Asynchrony and Error Handling
+// Exercise 7
+// The Task: "The Weather Simulator"
+// Create a small program that simulates fetching data from a weather API.
+
+// The API Function: Create a function called fetchWeather() that returns a Future<String>.
+//Use Future.delayed to make it take 3 seconds. It should return the string: "Sunny, 25°C".
+
+// The Main Logic: In your main() function (which must be async):
+
+// Print "Checking the sky...".
+
+// await the result of fetchWeather().
+
+// Print the result: "Today's Forecast: [result]".
+
+// The Error Handling: Wrap your await in a try-catch.
+
+// The Challenge: Add a second function called fetchWindSpeed() that takes 1 second and returns
+//an int (e.g., 15). Await both inside main and print them together.
+
+void main() {}
