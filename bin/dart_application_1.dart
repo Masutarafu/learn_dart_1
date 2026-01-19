@@ -484,4 +484,34 @@
 // The Challenge: Add a second function called fetchWindSpeed() that takes 1 second and returns
 //an int (e.g., 15). Await both inside main and print them together.
 
-void main() {}
+Future<String> fetchWeather() {
+  return Future.delayed(Duration(seconds: 3), () => "Sunny, 25C");
+}
+
+Future<int> fetchWindSpeed() {
+  return Future.delayed(Duration(seconds: 1), () => 15);
+}
+
+void main() async {
+  try {
+    print("Checking the sky...");
+
+    String forecast = await fetchWeather();
+
+    print("Today's Forecast: $forecast");
+  } catch (e) {
+    print("Could not read sky");
+  } finally {
+    print("Forecast unknown!");
+  }
+
+  try {
+    print("Starting barometer...");
+    int windSpeed = await fetchWindSpeed();
+    print("$windSpeed ms");
+  } catch (e) {
+    print("Could not start up barometer (reason: $e)");
+  } finally {
+    print("Unable to deduce wind speed");
+  }
+}
