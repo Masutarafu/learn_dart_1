@@ -484,34 +484,69 @@
 // The Challenge: Add a second function called fetchWindSpeed() that takes 1 second and returns
 //an int (e.g., 15). Await both inside main and print them together.
 
-Future<String> fetchWeather() {
-  return Future.delayed(Duration(seconds: 3), () => "Sunny, 25C");
-}
 
-Future<int> fetchWindSpeed() {
-  return Future.delayed(Duration(seconds: 1), () => 15);
-}
+// Day 13: Solutions
+// Future<String> fetchWeather() {
+//   return Future.delayed(Duration(seconds: 3), () => "Sunny, 25C");
+// }
 
-void main() async {
-  try {
-    print("Checking the sky...");
+// Future<int> fetchWindSpeed() {
+//   return Future.delayed(Duration(seconds: 1), () => 15);
+// }
 
-    String forecast = await fetchWeather();
+// void main() async {
+//   try {
+//     print("Checking the sky...");
 
-    print("Today's Forecast: $forecast");
-  } catch (e) {
-    print("Could not read sky");
-  } finally {
-    print("Forecast unknown!");
-  }
+//     String forecast = await fetchWeather();
 
-  try {
-    print("Starting barometer...");
-    int windSpeed = await fetchWindSpeed();
-    print("$windSpeed ms");
-  } catch (e) {
-    print("Could not start up barometer (reason: $e)");
-  } finally {
-    print("Unable to deduce wind speed");
-  }
-}
+//     print("Today's Forecast: $forecast");
+//   } catch (e) {
+//     print("Could not read sky");
+//   } finally {
+//     print("Forecast unknown!");
+//   }
+
+//   try {
+//     print("Starting barometer...");
+//     int windSpeed = await fetchWindSpeed();
+//     print("$windSpeed ms");
+//   } catch (e) {
+//     print("Could not start up barometer (reason: $e)");
+//   } finally {
+//     print("Unable to deduce wind speed");
+//   }
+// }
+
+
+// Day 14: Mostly revisions and a new exercise
+// The Task: The "Bank Vault Transfer"
+// You are simulating a secure bank transfer. You need to handle delays and potential "server" crashes.
+
+// The Function: Create a function processPayment(double amount).
+
+// It must return a Future<String>.
+
+// Inside, use await Future.delayed(Duration(seconds: 2)) to simulate a network delay.
+
+// The Logic:
+
+// If the amount is negative, throw an Exception: "Invalid Amount".
+
+// If the amount is over 1000, return "Success: $amount transferred with premium security."
+
+// Otherwise, return "Success: $amount transferred."
+
+// The Implementation (main):
+
+// You must mark main() as async.
+
+// Call processPayment twice:
+
+// Once with 500.0.
+
+// Once with -10.0.
+
+// The Guardrail: You must use a try-catch block to handle the error from the negative payment so the app doesn't crash.
+
+// Print a message: "Transaction started..." before the call and "Transaction complete." after.
