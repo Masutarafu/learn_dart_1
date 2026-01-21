@@ -484,7 +484,6 @@
 // The Challenge: Add a second function called fetchWindSpeed() that takes 1 second and returns
 //an int (e.g., 15). Await both inside main and print them together.
 
-
 // Day 13: Solutions
 // Future<String> fetchWeather() {
 //   return Future.delayed(Duration(seconds: 3), () => "Sunny, 25C");
@@ -518,35 +517,53 @@
 //   }
 // }
 
-
 // Day 14: Mostly revisions and a new exercise
 // The Task: The "Bank Vault Transfer"
 // You are simulating a secure bank transfer. You need to handle delays and potential "server" crashes.
-
 // The Function: Create a function processPayment(double amount).
-
 // It must return a Future<String>.
-
 // Inside, use await Future.delayed(Duration(seconds: 2)) to simulate a network delay.
-
 // The Logic:
-
 // If the amount is negative, throw an Exception: "Invalid Amount".
-
 // If the amount is over 1000, return "Success: $amount transferred with premium security."
-
 // Otherwise, return "Success: $amount transferred."
-
 // The Implementation (main):
-
 // You must mark main() as async.
-
 // Call processPayment twice:
-
 // Once with 500.0.
-
 // Once with -10.0.
-
-// The Guardrail: You must use a try-catch block to handle the error from the negative payment so the app doesn't crash.
-
+// The Guardrail: You must use a try-catch block to handle the error from the negative
+//payment so the app doesn't crash.
 // Print a message: "Transaction started..." before the call and "Transaction complete." after.
+
+Future<String> processPayment(double amount) async {
+  await Future.delayed(Duration(seconds: 2));
+
+  if (amount < 0) {
+    throw Exception("Invalid Amount"); // Triggering the error
+  }
+
+  if (amount > 1000) {
+    return "Success: $amount transferred with premium security.";
+  }
+  return "Success: $amount transferred.";
+}
+
+void main() async {
+  print("Transaction started...");
+
+  // The calls are wrapped in try-catch so one failure doesn't stop the whole script.
+  try {
+    String res1 = await processPayment(500.0);
+    print(res1);
+
+    String res2 = await processPayment(
+      -10.0,
+    ); // This will jump straight to 'catch'
+    print(res2);
+  } catch (e) {
+    print("CRITICAL ERROR: $e");
+  }
+
+  print("Transaction complete.");
+}
