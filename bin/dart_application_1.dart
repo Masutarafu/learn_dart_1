@@ -569,7 +569,7 @@
 //   print("Transaction complete.");
 // }
 
-// Day 15: Exercises
+// Day 16: Exercises
 // Exercise 8
 // The Task: The "Authentication Gatekeeper"
 // The Function: attemptLogin
