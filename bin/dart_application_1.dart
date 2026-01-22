@@ -518,6 +518,7 @@
 // }
 
 // Day 14: Mostly revisions and a new exercise
+// Exercise 8
 // The Task: The "Bank Vault Transfer"
 // You are simulating a secure bank transfer. You need to handle delays and potential "server" crashes.
 // The Function: Create a function processPayment(double amount).
@@ -536,34 +537,63 @@
 //payment so the app doesn't crash.
 // Print a message: "Transaction started..." before the call and "Transaction complete." after.
 
-Future<String> processPayment(double amount) async {
-  await Future.delayed(Duration(seconds: 2));
+// Future<String> processPayment(double amount) async {
+//   await Future.delayed(Duration(seconds: 2));
 
-  if (amount < 0) {
-    throw Exception("Invalid Amount"); // Triggering the error
-  }
+//   if (amount < 0) {
+//     throw Exception("Invalid Amount"); // Triggering the error
+//   }
 
-  if (amount > 1000) {
-    return "Success: $amount transferred with premium security.";
-  }
-  return "Success: $amount transferred.";
-}
+//   if (amount > 1000) {
+//     return "Success: $amount transferred with premium security.";
+//   }
+//   return "Success: $amount transferred.";
+// }
 
-void main() async {
-  print("Transaction started...");
+// void main() async {
+//   print("Transaction started...");
 
-  // The calls are wrapped in try-catch so one failure doesn't stop the whole script.
-  try {
-    String res1 = await processPayment(500.0);
-    print(res1);
+//   // The calls are wrapped in try-catch so one failure doesn't stop the whole script.
+//   try {
+//     String res1 = await processPayment(500.0);
+//     print(res1);
 
-    String res2 = await processPayment(
-      -10.0,
-    ); // This will jump straight to 'catch'
-    print(res2);
-  } catch (e) {
-    print("CRITICAL ERROR: $e");
-  }
+//     String res2 = await processPayment(
+//       -10.0,
+//     ); // This will jump straight to 'catch'
+//     print(res2);
+//   } catch (e) {
+//     print("CRITICAL ERROR: $e");
+//   }
 
-  print("Transaction complete.");
-}
+//   print("Transaction complete.");
+// }
+
+// Day 15: Exercises
+// Exercise 8
+// The Task: The "Authentication Gatekeeper"
+// The Function: attemptLogin
+// Input: String username, String password.
+
+// Return Type: Future<(bool, String)> (A Record containing a success flag and a message).
+
+// The Logic:
+
+// await a delay of 3 seconds (Simulating a slow server).
+
+// If the password is "12345", return (true, "Welcome, $username").
+
+// If the password is anything else, return (false, "Wrong Password").
+
+// The "Crash" Logic: If the username is "buggy_user", use the throw keyword to throw 
+//an Exception: "Server Timeout".
+
+// The Implementation: main()
+// Call attemptLogin for a normal user (correct password).
+
+// Call attemptLogin for a "buggy_user".
+
+// The Challenge: Use try-catch to handle the "Server Timeout" exception.
+
+// The Formatting: Use Pattern Destructuring to extract the (success, message) from 
+//the result record and print them cleanly.
