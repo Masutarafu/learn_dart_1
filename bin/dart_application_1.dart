@@ -597,3 +597,6 @@
 
 // The Formatting: Use Pattern Destructuring to extract the (success, message) from 
 //the result record and print them cleanly.
+
+// Day 17: Thorough revisions
+// Did a major revision of the work so far
